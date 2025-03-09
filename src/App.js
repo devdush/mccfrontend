@@ -1,7 +1,19 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { LoginUser } from "./store/action/auth";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import AdminDashboard from "./layouts/AdminDashboard";
+import CheckAuth from "./common/check-auth";
+import AdminDashboardLayout from "./layouts/AdminDashboard";
+import CustomerDashboardLayout from "./layouts/CustomerDashboard";
+import CustomerDashboard from "./pages/CustomerDB";
+import DriverDashboard from "./pages/DriverDB";
+import DriverDashboardLayout from "./layouts/DriverDashboard";
+import AuthLayout from "./pages/AuthLayout";
 
 function App() {
   const dispatch = useDispatch();
@@ -13,23 +25,58 @@ function App() {
     };
     dispatch(LoginUser(obj));
   };
+  const isAuthenticated = sessionStorage.getItem("token") ? true : false;
+  const user = JSON.parse(sessionStorage.getItem("user"));
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <button onClick={onButtonClick}>Login</button>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/auth"
+          element={
+            <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+              <AuthLayout />
+            </CheckAuth>
+          }
         >
-          Learn React
-        </a>
-        <button onClick={onButtonClick}>Click me</button>
-      </header>
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+        </Route>
+        <Route
+          path="/admin"
+          element={
+            <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+              <AdminDashboardLayout />
+            </CheckAuth>
+          }
+        >
+          <Route path="dashboard" element={<AdminDashboard />} />
+        </Route>
+        <Route
+          path="/customer/*"
+          element={
+            <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+              <CustomerDashboardLayout />
+            </CheckAuth>
+          }
+        >
+          <Route path="dashboard" element={<CustomerDashboard />} />
+        </Route>
+
+        {/* Driver Routes */}
+        <Route
+          path="/driver/*"
+          element={
+            <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+              <DriverDashboardLayout />
+            </CheckAuth>
+          }
+        >
+          <Route path="dashboard" element={<DriverDashboard />} />
+        </Route>
+      </Routes>
     </div>
   );
 }

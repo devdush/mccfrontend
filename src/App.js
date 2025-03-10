@@ -14,6 +14,10 @@ import CustomerDashboard from "./pages/CustomerDB";
 import DriverDashboard from "./pages/DriverDB";
 import DriverDashboardLayout from "./layouts/DriverDashboard";
 import AuthLayout from "./pages/AuthLayout";
+import CreateBooking from "./pages/CreateBooking";
+import ManageBooking from "./pages/ManageBooking";
+import BookingHistory from "./pages/BookingHistory";
+import Profile from "./pages/Profile";
 
 function App() {
   const dispatch = useDispatch();
@@ -63,6 +67,10 @@ function App() {
           }
         >
           <Route path="dashboard" element={<CustomerDashboard />} />
+          <Route path="create-booking" element={<CreateBooking />} />
+          <Route path="all-bookings" element={<ManageBooking />} />
+          <Route path="bookings-history" element={<BookingHistory />} />
+          <Route path="profile" element={<Profile />} />
         </Route>
 
         {/* Driver Routes */}

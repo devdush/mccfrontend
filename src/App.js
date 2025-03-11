@@ -21,20 +21,20 @@ import Profile from "./pages/Profile";
 
 function App() {
   const dispatch = useDispatch();
-  const onButtonClick = () => {
-    console.log("Button clicked");
-    const obj = {
-      email: "haritha2@gmail.com",
-      password: "12345",
-    };
-    dispatch(LoginUser(obj));
-  };
-  const isAuthenticated = sessionStorage.getItem("token") ? true : false;
-  const user = JSON.parse(sessionStorage.getItem("user"));
-
+  // const onButtonClick = () => {
+  //   console.log("Button clicked");
+  //   const obj = {
+  //     email: "haritha2@gmail.com",
+  //     password: "12345",
+  //   };
+  //   dispatch(LoginUser(obj));
+  // };
+  const { user, isAuthenticated, isLoading } = useSelector(
+    (state) => state.auth
+  );
   return (
     <div >
-      <button onClick={onButtonClick}>Login</button>
+    
       <Routes>
         <Route path="/" element={<Home />} />
         <Route

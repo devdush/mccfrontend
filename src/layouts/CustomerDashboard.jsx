@@ -45,6 +45,7 @@ const NAVIGATION = [
     segment: "admin/orders",
     title: "Logout",
     icon: <LogoutIcon />,
+    
   },
 ];
 

@@ -1,12 +1,13 @@
 import { toast } from "react-toastify";
 import { loginUser } from "../../services/auth/login";
+import { useNavigate } from "react-router-dom";
 
 export const LoginUser = (data) => {
   console.log(data);
   return async (dispatch) => {
     try {
       const response = await loginUser(data);
-
+      console.log(response);
       if (response?.status === 200) {
         const user = response?.data?.user;
         const isAuthenticated = response?.data?.token ? true : false;
@@ -22,7 +23,9 @@ export const LoginUser = (data) => {
           token: token,
         });
 
-        toast.success(response.data.message);
+        toast.success("response.data.message");
+       
+        // window.location.href = "/customer/dashboard";
       } else {
         toast.error(response.data.message);
       }

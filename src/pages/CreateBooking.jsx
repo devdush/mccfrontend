@@ -176,6 +176,7 @@ const CreateBooking = () => {
       distance: distance,
       fare: fare,
       status: "PENDING",
+      orderDate: new Date().toISOString(),
     };
 
     try {

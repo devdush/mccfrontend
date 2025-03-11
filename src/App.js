@@ -33,7 +33,7 @@ function App() {
   const user = JSON.parse(sessionStorage.getItem("user"));
 
   return (
-    <div className="App">
+    <div >
       <button onClick={onButtonClick}>Login</button>
       <Routes>
         <Route path="/" element={<Home />} />

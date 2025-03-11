@@ -1,5 +1,7 @@
+import { Box, ThemeProvider, createTheme } from '@mui/system';
+
 const AdminDashboard = () => {
-    return ( <h1>ADMINDB</h1> );
+    return ( <Box sx={{}} >sa</Box> );
 }
  
 export default AdminDashboard;

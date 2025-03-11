@@ -1,13 +1,6 @@
 import React from "react";
-import {
-  TextField,
-  Button,
-  Container,
-  Typography,
-  Paper,
-  MenuItem,
-} from "@mui/material";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { TextField, Button, Container, Typography, Paper } from "@mui/material";
+import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { registerUser } from "../services/auth/register";
 import { toast } from "react-toastify";
@@ -15,48 +8,44 @@ import { toast } from "react-toastify";
 const validationSchema = Yup.object({
   username: Yup.string().required("Username is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
-  password: Yup.string()
-    .min(6, "Password must be at least 6 characters")
-    .required("Password is required"),
+  password: Yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
   phone: Yup.string()
     .matches(/^\d{10}$/, "Phone number must be 10 digits")
     .required("Phone number is required"),
-    role: Yup.string().required("Role is required"),
 });
 
-const Register = () => {
-  const handleSubmit = async (values, { resetForm }) => {
+const DriverRegister = () => {
+  const handleSubmit = async(values, { resetForm }) => {
     console.log("Form Submitted", values);
     const obj = {
-      username: values.username,
-      email: values.email,
-      password: values.password,
-      phone: values.phone,
-      role: values.role,
-    };
-    try {
-      const response = await registerUser(obj);
-      if (response.status === 201) {
-        toast.success("User registered successfully");
-        window.location.href = "/auth/login";
-      } else {
-        toast.error("Failed to register user");
-      }
-    } catch (error) {
-      toast.error("Failed to register user");
+        username: values.username,
+        email: values.email,
+        password: values.password,
+        phone: values.phone,
+        role: "CUSTOMER",
     }
-
+    try {
+        const response = await registerUser(obj);
+        if (response.status === 201) {
+            toast.success("User registered successfully");
+            window.location.href = "/auth/login";
+        }
+        else {
+            toast.error("Failed to register user");
+        }
+    } catch (error) {
+        toast.error("Failed to register user");
+    }
+    
     resetForm();
   };
 
   return (
     <Container maxWidth="sm" style={styles.container}>
       <Paper elevation={3} style={styles.paper}>
-        <Typography variant="h4" style={styles.title}>
-          Register
-        </Typography>
+        <Typography variant="h4" style={styles.title}>Register as Driver</Typography>
         <Formik
-          initialValues={{ username: "", email: "", password: "", phone: "", role: "" }}
+          initialValues={{ username: "", email: "", password: "", phone: "" }}
           validationSchema={validationSchema}
           onSubmit={handleSubmit}
         >
@@ -97,34 +86,11 @@ const Register = () => {
                 name="phone"
                 fullWidth
                 margin="normal"
+       
                 error={touched.phone && !!errors.phone}
                 helperText={touched.phone && errors.phone}
               />
-
-              <Field
-                as={TextField}
-                select
-                fullWidth
-                name="role"
-                label="Role"
-                variant="outlined"
-                margin="dense"
-              >
-                <MenuItem value="CUSTOMER">Customer</MenuItem>
-                <MenuItem value="DRIVER">Driver</MenuItem>
-              </Field>
-              <ErrorMessage
-                name="role"
-                component="div"
-                style={{ color: "red", fontSize: "12px" }}
-              />
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                fullWidth
-                style={styles.button}
-              >
+              <Button type="submit" variant="contained" color="primary" fullWidth style={styles.button}>
                 Register
               </Button>
             </Form>
@@ -137,6 +103,7 @@ const Register = () => {
 
 const styles = {
   container: {
+
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -157,6 +124,7 @@ const styles = {
   form: {
     display: "flex",
     flexDirection: "column",
+    
   },
   button: {
     marginTop: "20px",
@@ -165,4 +133,4 @@ const styles = {
   },
 };
 
-export default Register;
+export default DriverRegister;

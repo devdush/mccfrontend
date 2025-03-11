@@ -20,6 +20,8 @@ const CheckAuth = ({ isAuthenticated, user, children }) => {
   ) {
     if (user?.role === "CUSTOMER") {
       return <Navigate to="/customer/dashboard" />;
+    } else if (user?.role === "DRIVER") {
+      return <Navigate to="/driver/dashboard" />;
     } else {
       return <Navigate to="/" />;
     }
@@ -33,10 +35,10 @@ const CheckAuth = ({ isAuthenticated, user, children }) => {
   }
   if (
     isAuthenticated &&
-    user?.role === "admin" &&
-    location.pathname.includes("shop")
+    user?.role === "DRIVER" &&
+    location.pathname.includes("customer")
   ) {
-    return <Navigate to="/admin/dashboard" />;
+    return <Navigate to="/driver/dashboard" />;
   }
   return <>{children}</>;
 };

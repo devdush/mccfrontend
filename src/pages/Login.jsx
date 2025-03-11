@@ -5,8 +5,9 @@ import * as Yup from "yup";
 import { registerUser } from "../services/auth/register";
 import { toast } from "react-toastify";
 import { loginUser } from "../services/auth/login";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { LoginUser } from "../store/action/auth";
+import { addCustomer } from "../services/customerService/addCustomer";
 
 const validationSchema = Yup.object({
   email: Yup.string().email("Invalid email").required("Email is required"),
@@ -17,6 +18,7 @@ const validationSchema = Yup.object({
 
 const Login = () => {
   const dispatch = useDispatch();
+  const { user, token } = useSelector((state) => state.auth);
   const handleSubmit = async (values, { resetForm }) => {
     console.log("Form Submitted", values);
     const obj = {
@@ -24,8 +26,9 @@ const Login = () => {
       password: values.password,
     };
     try {
-     
       dispatch(LoginUser(obj));
+      
+      console.log("Token", token);
       resetForm();
     } catch (error) {
       toast.error("Failed to register user");

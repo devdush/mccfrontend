@@ -18,6 +18,7 @@ import CreateBooking from "./pages/CreateBooking";
 import ManageBooking from "./pages/ManageBooking";
 import BookingHistory from "./pages/BookingHistory";
 import Profile from "./pages/Profile";
+import DriverRegister from "./pages/DriverRegister";
 
 function App() {
   const dispatch = useDispatch();
@@ -29,9 +30,11 @@ function App() {
   //   };
   //   dispatch(LoginUser(obj));
   // };
-  const { user, isAuthenticated, isLoading } = useSelector(
-    (state) => state.auth
-  );
+  // const { user, isAuthenticated, isLoading } = useSelector(
+  //   (state) => state.auth
+  // );
+  const user = JSON.parse(sessionStorage.getItem("user"));
+  const isAuthenticated = sessionStorage.getItem("token") ? true : false
   return (
     <div >
     
@@ -47,6 +50,7 @@ function App() {
         >
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+          <Route path="register-driver" element={<DriverRegister />} />
         </Route>
         <Route
           path="/admin"

@@ -6,7 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import AdminDashboard from "./layouts/AdminDashboard";
+
 import CheckAuth from "./common/check-auth";
 import AdminDashboardLayout from "./layouts/AdminDashboard";
 import CustomerDashboardLayout from "./layouts/CustomerDashboard";
@@ -19,6 +19,7 @@ import ManageBooking from "./pages/ManageBooking";
 import BookingHistory from "./pages/BookingHistory";
 import Profile from "./pages/Profile";
 import DriverRegister from "./pages/DriverRegister";
+import AdminDashboard from "./pages/AdminDB";
 
 function App() {
   const dispatch = useDispatch();

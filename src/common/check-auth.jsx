@@ -22,13 +22,17 @@ const CheckAuth = ({ isAuthenticated, user, children }) => {
       return <Navigate to="/customer/dashboard" />;
     } else if (user?.role === "DRIVER") {
       return <Navigate to="/driver/dashboard" />;
-    } else {
+    } 
+     else if (user?.role === "ADMIN") {
+      return <Navigate to="/admin/dashboard" />;
+    } 
+    else {
       return <Navigate to="/" />;
     }
   }
   if (
     isAuthenticated &&
-    user?.role !== "admin" &&
+    user?.role !== "ADMIN" &&
     location.pathname.includes("admin")
   ) {
     return <Navigate to="/unauth-page" />;

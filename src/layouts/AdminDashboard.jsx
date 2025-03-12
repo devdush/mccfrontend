@@ -28,123 +28,30 @@ const NAVIGATION = [
   },
   {
     segment: "admin/orders",
-    title: "Orders",
+    title: "View Orders",
     icon: <ShoppingCartIcon />,
   },
-  //   {
-  //     kind: "divider",
-  //   },
-  //   {
-  //     kind: "header",
-  //     title: "Analytics",
-  //   },
   {
-    segment: "admin",
-    title: "Brand",
-    icon: <BrandingWatermarkIcon />,
-    children: [
-      {
-        segment: "brand-create",
-        title: "Create",
-        icon: <AddIcon />,
-      },
-      {
-        segment: "brand-update",
-        title: "Manage",
-        icon: <CreateIcon />,
-      },
-    ],
+    segment: "admin/drivers",
+    title: "View Drivers",
+    icon: <ShoppingCartIcon />,
   },
   {
-    segment: "admin",
-    title: "Warranty",
-    icon: <ShieldIcon />,
-    children: [
-      {
-        segment: "warranty-create",
-        title: "Create",
-        icon: <AddIcon />,
-      },
-      {
-        segment: "brand-update",
-        title: "Manage",
-        icon: <CreateIcon />,
-      },
-    ],
+    segment: "admin/customers",
+    title: "View Customers",
+    icon: <ShoppingCartIcon />,
   },
   {
-    segment: "admin",
-    title: "Slider",
-    icon: <ImageIcon />,
-    children: [
-      {
-        segment: "create-brand",
-        title: "Create",
-        icon: <AddIcon />,
-      },
-      {
-        segment: "update-brand",
-        title: "Manage",
-        icon: <CreateIcon />,
-      },
-    ],
+    segment: "admin/reports",
+    title: "Reports",
+    icon: <ShoppingCartIcon />,
   },
   {
-    segment: "admin",
-    title: "Main Category",
-    icon: <AccountTreeIcon />,
-    children: [
-      {
-        segment: "main-category-create",
-        title: "Create",
-        icon: <AddIcon />,
-      },
-      {
-        segment: "main-category-update",
-        title: "Manage",
-        icon: <CreateIcon />,
-      },
-    ],
+    segment: "admin/profile",
+    title: "Profile",
+    icon: <ShoppingCartIcon />,
   },
-  {
-    segment: "admin",
-    title: "Category",
-    icon: <CategoryIcon />,
-    children: [
-      {
-        segment: "category-create",
-        title: "Create",
-        icon: <AddIcon />,
-      },
-      {
-        segment: "category-update",
-        title: "Manage",
-        icon: <CreateIcon />,
-      },
-    ],
-  },
-  {
-    segment: "admin",
-    title: "Products",
-    icon: <DevicesIcon />,
-    children: [
-      {
-        segment: "product-create",
-        title: "Create",
-        icon: <AddIcon />,
-      },
-      {
-        segment: "product-update",
-        title: "Manage",
-        icon: <CreateIcon />,
-      },
-      {
-        segment: "erp-products",
-        title: "From ERP",
-        icon: <FormatListNumberedIcon />,
-      },
-    ],
-  },
+
   {
     segment: "admin/orders",
     title: "Logout",

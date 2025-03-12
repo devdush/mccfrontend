@@ -5,17 +5,12 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { AppProvider } from "@toolpad/core/AppProvider";
 import { DashboardLayout } from "@toolpad/core/DashboardLayout";
 import { Outlet } from "react-router-dom";
-import BrandingWatermarkIcon from "@mui/icons-material/BrandingWatermark";
-import CreateIcon from "@mui/icons-material/Create";
-import AddIcon from "@mui/icons-material/Add";
-import ImageIcon from "@mui/icons-material/Image";
-import DevicesIcon from "@mui/icons-material/Devices";
-import CategoryIcon from "@mui/icons-material/Category";
-import AccountTreeIcon from "@mui/icons-material/AccountTree";
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import LogoutIcon from "@mui/icons-material/Logout";
-import FormatListNumberedIcon from "@mui/icons-material/FormatListNumbered";
-import { Typography } from "@mui/material";
-import ShieldIcon from '@mui/icons-material/Shield';
+import DriveEtaIcon from '@mui/icons-material/DriveEta';
+import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
+import AssessmentIcon from '@mui/icons-material/Assessment';
+import PersonIcon from '@mui/icons-material/Person';
 const NAVIGATION = [
   {
     kind: "header",
@@ -29,27 +24,27 @@ const NAVIGATION = [
   {
     segment: "admin/orders",
     title: "View Orders",
-    icon: <ShoppingCartIcon />,
+    icon: <BookmarkBorderIcon />,
   },
   {
     segment: "admin/drivers",
     title: "View Drivers",
-    icon: <ShoppingCartIcon />,
+    icon: <DriveEtaIcon />,
   },
   {
     segment: "admin/customers",
     title: "View Customers",
-    icon: <ShoppingCartIcon />,
+    icon: <EmojiPeopleIcon />,
   },
   {
     segment: "admin/reports",
     title: "Reports",
-    icon: <ShoppingCartIcon />,
+    icon: <AssessmentIcon />,
   },
   {
     segment: "admin/profile",
     title: "Profile",
-    icon: <ShoppingCartIcon />,
+    icon: <PersonIcon />,
   },
 
   {
@@ -88,7 +83,7 @@ const AdminDashboardLayout = () => {
         theme={demoTheme}
         branding={{
           logo: "",
-          title: "VYS INTERNATIONALS",
+          title: "MEGA CABS",
         }}
       >
         <DashboardLayout>

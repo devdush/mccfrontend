@@ -43,9 +43,11 @@ const DriverDashboard = () => {
 
   useEffect(() => {
     const getData = async () => {
+        console.log("savedUser",savedUser);
+        
       try {
         const response = await getDriverByUserId(savedUser.id, token);
-        console.log(response);
+        console.log("response",response);
         setIsCustomer(false);
       } catch (error) {
         console.log(error);

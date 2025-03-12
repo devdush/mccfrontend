@@ -20,6 +20,10 @@ import BookingHistory from "./pages/BookingHistory";
 import Profile from "./pages/Profile";
 import DriverRegister from "./pages/DriverRegister";
 import AdminDashboard from "./pages/AdminDB";
+import ViewOrders from "./pages/ViewOrders";
+import ViewDrivers from "./pages/ViewDrivers";
+import ViewCustomers from "./pages/ViewCustomers";
+import ViewReports from "./pages/viewReports";
 
 function App() {
   const dispatch = useDispatch();
@@ -62,6 +66,10 @@ function App() {
           }
         >
           <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="orders" element={<ViewOrders />} />
+          <Route path="drivers" element={<ViewDrivers />} />
+          <Route path="customers" element={<ViewCustomers />} />
+          <Route path="reports" element={<ViewReports />} />
         </Route>
         <Route
           path="/customer/*"

@@ -35,8 +35,12 @@ const ViewOrders = () => {
         const response = await getOrders(token);
         const driverResponse = await getDrivers(token);
         setFilteredData(response.data);
-        setDrivers(driverResponse.data);
-        console.log(driverResponse);
+        const availableDrivers = driverResponse.data.filter(
+          (driver) => driver.available === true
+        );
+
+        console.log(availableDrivers);
+        setDrivers(availableDrivers);
       } catch (error) {
         toast.error("Something went wrong while fetching initial data");
       }
@@ -166,7 +170,7 @@ const ViewOrders = () => {
   ];
   return (
     <Box>
-        <h1 style={{textAlign:"center"}}>Orders Details</h1>
+      <h1 style={{ textAlign: "center" }}>Orders Details</h1>
       <Box
         display="grid"
         height="78vh"

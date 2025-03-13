@@ -24,6 +24,7 @@ import ViewOrders from "./pages/ViewOrders";
 import ViewDrivers from "./pages/ViewDrivers";
 import ViewCustomers from "./pages/ViewCustomers";
 import ViewReports from "./pages/viewReports";
+import AcceptOrders from "./pages/AcceptOrders";
 
 function App() {
   const dispatch = useDispatch();
@@ -96,6 +97,7 @@ function App() {
           }
         >
           <Route path="dashboard" element={<DriverDashboard />} />
+          <Route path="view-orders" element={<AcceptOrders />} />
         </Route>
       </Routes>
     </div>
